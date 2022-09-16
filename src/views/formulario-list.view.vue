@@ -24,7 +24,7 @@
                         <label style=" font-weight:bolder;"> Marque o que mais o identifica</label>
                         <div v-for="termo in item" :key="termo.id">
                             <label class="radio column is-12" style="margin-left: 8px">
-                                <input type="radio" :name="termo.pergunta" v-model="Candidato.id">
+                                <input type="radio" :name="termo.pergunta">
                                 {{termo.termo}}
                             </label>
                         </div>
@@ -92,6 +92,7 @@ export default class FormularioList extends Vue {
                     this.notificacao = this.notificacao.new(true, 'notification is-danger', 'Error: ' + error)
                     this.onClickLimpar()
                 })
+
 
     }
 
