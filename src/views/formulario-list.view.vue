@@ -1,6 +1,7 @@
+<!-- eslint-disable vue/require-v-for-key -->
 <template>
     <div class="columns">
-        <div class="column is-2" style="background-color: #452c84; height: 613px;">
+        <div class="column is-2" style="background-color: #452c84; height: auto;">
 
             <div class="column is-12">
                 <label class="label" style="color:grey">Dados pessoais</label>
@@ -17,15 +18,15 @@
 
         <div class="column is-9 conteudo">
             <div class="container">
-                <div class="field column is-6">
-
-
-                    <div class="control field column is-7" v-for="item in testeList" :key="item.id">
+                <div class="field column is-6" style="width: 100%; display: grid; grid-template-columns: auto auto auto;">
+                    <div class="control field column is-10" v-for="item in testeList">
                         <label style=" font-weight:bolder;"> Marque o que mais o identifica</label>
+                        <div  v-for="termo in item" :key="termo.id"> 
                         <label class="radio column is-12" style="margin-left: 8px">
-                            <input type="radio" name="foobar">
-                            {{item.termo}}
+                            <input type="radio" :name="termo.pergunta" >
+                            {{termo.termo}}
                         </label>
+                        </div>
                     </div>
 
                 </div>
@@ -60,7 +61,7 @@ export default class FormularioList extends Vue {
     public candidatoClient = new CandidatoClient()
     public testePersonalidade = new TestePersonalidade()
     public testePersonalidadeClient = new TestePersonalidadeClient()
-    public testeList: any
+    public testeList: TestePersonalidade[] = []
 
     public mounted(): void {
         this.testePersonalidadeClient = new TestePersonalidadeClient()

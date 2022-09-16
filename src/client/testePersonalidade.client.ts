@@ -9,7 +9,7 @@ export class TestePersonalidadeClient {
 
     constructor() {
         this.axiosClient = axios.create({
-            baseURL: 'http://192.168.107.167:8080/api/testePersonalidade',
+            baseURL: 'http://localhost:8001',
             headers: { 'Content-type': 'application/json' }
         });
     }
