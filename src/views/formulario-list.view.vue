@@ -18,14 +18,15 @@
 
         <div class="column is-9 conteudo">
             <div class="container">
-                <div class="field column is-6" style="width: 100%; display: grid; grid-template-columns: auto auto auto;">
+                <div class="field column is-6"
+                    style="width: 100%; display: grid; grid-template-columns: auto auto auto;">
                     <div class="control field column is-10" v-for="item in testeList">
                         <label style=" font-weight:bolder;"> Marque o que mais o identifica</label>
-                        <div  v-for="termo in item" :key="termo.id"> 
-                        <label class="radio column is-12" style="margin-left: 8px">
-                            <input type="radio" :name="termo.pergunta" >
-                            {{termo.termo}}
-                        </label>
+                        <div v-for="termo in item" :key="termo.id">
+                            <label class="radio column is-12" style="margin-left: 8px">
+                                <input type="radio" :name="termo.pergunta">
+                                {{termo.termo}}
+                            </label>
                         </div>
                     </div>
 
@@ -56,7 +57,7 @@ import { TestePersonalidadeClient } from '@/client/testePersonalidade.client'
 
 export default class FormularioList extends Vue {
 
-    public notificacaoModel: NotificacaoModel = new NotificacaoModel()
+    public notificacao: NotificacaoModel = new NotificacaoModel()
     public candidato: CandidatoModel = new CandidatoModel()
     public candidatoClient = new CandidatoClient()
     public testePersonalidade = new TestePersonalidade()
@@ -78,7 +79,26 @@ export default class FormularioList extends Vue {
     }
 
     public onClickFecharNotificacao(): void {
-        this.notificacaoModel = new NotificacaoModel()
+        this.notificacao = new NotificacaoModel()
+    }
+
+    public onClickSalvar(): void {
+        this.testePersonalidadeClient.cadastrar(this.testePersonalidade)
+            .then(
+                success => {
+                    this.notificacao = this.notificacao.new(true, 'notification is-success', 'Especialidade Cadastrada com sucesso!!!')
+                    this.onClickLimpar()
+                }, error => {
+                    this.notificacao = this.notificacao.new(true, 'notification is-danger', 'Error: ' + error)
+                    this.onClickLimpar()
+                })
+
+
+    }
+
+
+    private onClickLimpar(): void {
+        this.testePersonalidade = new TestePersonalidade()
     }
 }
 </script>
