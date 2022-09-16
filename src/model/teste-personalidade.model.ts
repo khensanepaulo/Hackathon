@@ -1,5 +1,5 @@
 export class TestePersonalidade {
-    index!: String
-    pergunta!: String
+    index!: string
+    pergunta!: string
 
 }

@@ -21,6 +21,14 @@ export class CandidatoClient {
         }
     }
 
+    public async get(candidatoModel: CandidatoModel): Promise<void> {
+        try {
+            return (await this.axiosClient.get('/disk')).data
+        } catch (error: any) {
+            return Promise.reject(error.response)
+        }
+    }
+
     public async cadastrar(candidatoModel: CandidatoModel): Promise<void> {
         try {
             return (await this.axiosClient.put(`/`, candidatoModel)).data

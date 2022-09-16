@@ -22,9 +22,9 @@ export class TestePersonalidadeClient {
         }
     }
 
-    public async listar(token: string): Promise<TestePersonalidade[]> {
+    public async listar(): Promise<TestePersonalidade[]> {
         try {
-            return (await this.axiosClient.get<TestePersonalidade[]>(`/listar?token=${token}`)).data
+            return (await this.axiosClient.get('/disc')).data
         } catch (error: any) {
             return Promise.reject(error.response)
         }
