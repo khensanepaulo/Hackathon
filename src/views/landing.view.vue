@@ -8,7 +8,7 @@
 
             </div>
             <div class="column is-12">
-                <label class="label" style="color:white">>Teste de Personalidade</label>
+                <label class="label" style="color:grey">Teste de Personalidade</label>
             </div>
             <div class="column is-12">
                 <label class="label" style="color:grey">Teste de Prático</label>
@@ -18,25 +18,45 @@
 
         <div class="column is-9 conteudo">
             <div class="container">
-                <div class="field column is-6"
-                    style="width: 100%; display: grid; grid-template-columns: auto auto auto;">
-                    <div class="control field column is-10" v-for="item in testeList">
-                        <label style=" font-weight:bolder;"> Marque o que mais o identifica</label>
-                        <div v-for="termo in item" :key="termo.id">
-                            <label class="radio column is-12" style="margin-left: 8px">
-                                <input type="radio" :name="termo.pergunta" v-model="Candidato.id">
-                                {{termo.termo}}
-                            </label>
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3" style="padding-top: 39%;">
+                            <img src="https://dernegocios.com.br/wp-content/uploads/2019/08/Contabilidade-valuation.jpg"
+                                alt="Placeholder image" style="height: 400px">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Logotipo_empresa.png"
+                                        alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4">Assistente contábil</p>
+                                <p class="subtitle is-6">@suaempresa</p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            Com mais de 50 mil clientes, atuando em mais de 50 cidades do Brasil, a Contabilizei está
+                            mudando a maneira como o micro e pequeno empreendedor gerencia o seu negócio em nosso país.
+                            Continuamos a crescer rapidamente, criando novos produtos e proporcionando que o
+                            empreendedor seja o contador de sua própria história.
+                            Por aqui, somos mais de 1.000 pessoas, todas selecionadas a dedo, e que levam muito a sério
+                            o nosso propósito de resolver o problema real brasileiro, trabalhando em busca de soluções
+                            inovadoras para facilitar a vida dos nossos clientes.
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="field column is-4" style="margin-left: 70%;">
                     <div class="columns">
                         <div class="column is-offset-4 is-8">
-                            <router-link to="/teste" class="button is-success is-fullwidth is-large"> Próximo
-                                passo
+                            <router-link to="/candidato" class="button is-success is-fullwidth is-large"> Prosseguir
                             </router-link>
                         </div>
                     </div>

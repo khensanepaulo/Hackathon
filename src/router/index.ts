@@ -2,6 +2,11 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: '/',
+    name: 'landingPage',
+    component: () => import(/* webpackChunkName: "formulario" */ '../views/landing.view.vue')
+  },
+  {
     path: '/candidato',
     name: 'candidato',
     component: () => import(/* webpackChunkName: "formulario" */ '../views/formulario.view.vue')
