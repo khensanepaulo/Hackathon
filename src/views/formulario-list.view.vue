@@ -1,6 +1,6 @@
 <template>
     <div class="columns">
-        <div class="column is-2" style="background-color: #480FD9; height: 600px;">
+        <div class="column is-2" style="background-color: #452c84; height: 613px;">
 
             <div class="column is-12">
                 <label class="label" style="color:grey">Dados pessoais</label>
@@ -60,43 +60,14 @@
 <script lang="ts">
 import { Vue } from 'vue-class-component'
 import { NotificacaoModel } from '@/model/notificacao.model'
-import { ProdutoClient } from '@/client/testePersonalidade.client'
-
+import { CandidatoModel } from '@/model/candidato.model'
+import { CandidatoClient } from '@/client/candidato.client'
 
 export default class PassoView extends Vue {
 
     public notificacaoModel: NotificacaoModel = new NotificacaoModel()
-    public produtoClient: ProdutoClient = new ProdutoClient()
-
-    public mounted(): void {
-        this.listarProdutos()
-    }
-
-    public listarProdutos(): void {
-        this.produtoClient.listar('S2hlbnNhbmUgUGF1bG8gSm9zc2Fp').then(
-            success => {
-                // this.produtoModelList = success
-            },
-            error => {
-                this.notificacaoModel = this.notificacaoModel.new(
-                    true, 'notification is-danger', 'Não foi possivel obter o Próximo Passo!!! Error: ' + error.data)
-            }
-        )
-    }
-
-    public onClickExcluir(id: number): void {
-        this.produtoClient.excluir('S2hlbnNhbmUgUGF1bG8gSm9zc2Fp', id).then(
-            success => {
-                this.notificacaoModel = this.notificacaoModel.new(
-                    true, 'notification is-success', 'sucesso')
-
-            },
-            error => {
-                this.notificacaoModel = this.notificacaoModel.new(
-                    true, 'notification is-danger', 'Não foi possivel eliminar' + error.data)
-            }
-        )
-    }
+    public candidato: CandidatoModel = new CandidatoModel()
+    public candidatoClient = new CandidatoClient()
 
     public onClickFecharNotificacao(): void {
         this.notificacaoModel = new NotificacaoModel()

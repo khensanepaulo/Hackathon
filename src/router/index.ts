@@ -4,7 +4,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/candidato',
     name: 'candidato',
-    component: () => import(/* webpackChunkName: "menu" */ '../views/formulario.view.vue')
+    component: () => import(/* webpackChunkName: "formulario" */ '../views/formulario.view.vue')
+  },
+  {
+    path: '/contratante',
+    name: 'contratante',
+    component: () => import(/* webpackChunkName: "contratante" */ '../views/contratante.view.vue')
   },
   {
     path: '/formulario',

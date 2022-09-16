@@ -1,7 +1,7 @@
 <template>
 
     <div class="columns">
-        <div class="column is-2" style="background-color: #480FD9; height: 600px;">
+        <div class="column is-2" style="background-color: #452c84; height: 600px;">
 
             <div class="column is-12">
                 <label class="label" style="color:grey">Dados pessoais</label>
@@ -91,6 +91,8 @@ nav {
 <script lang="ts">
 import { Vue } from 'vue-class-component'
 
-export default class MenuView extends Vue { }
+export default class MenuView extends Vue {
+
+}
 
 </script>

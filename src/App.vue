@@ -1,8 +1,35 @@
 <template>
 
   <div class="column">
-    <div class="columns is-12 menu-top" style="background-color: #8102DB; border-bottom-style:1px solid #FFF">
+    <div class="columns is-12 menu-top"
+      style="background-color: rgb(54 15 81);border-bottom-style: solid; border-color: black; font-family: fantasy; font-size: 20px; color: rgb(170 115 33);">
       Candidato
+
+      <div id="navbarBasicExample" class="navbar-menu" style="margin-left: 85%;">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" style="color: aliceblue; font-family: initial; font-size: 13px;">
+              Saiba Mais
+            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                About
+              </a>
+              <a class="navbar-item">
+                Jobs
+              </a>
+              <a class="navbar-item">
+                Contact
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                Report an issue
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="column is-12">

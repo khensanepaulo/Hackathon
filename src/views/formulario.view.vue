@@ -1,24 +1,26 @@
 <template>
 
     <div class="columns">
-        <div class="column is-2" style="background-color: #480FD9; ">
+        <div class="column is-2" style="background-color: #452c84">
 
             <div class="column is-12">
-                <label class="label" style="color:grey">Dados pessoais</label>
+                <label class="label" style="color:white">>Dados pessoais</label>
 
             </div>
             <div class="column is-12">
                 <label class="label" style="color:grey">Teste de Personalidade</label>
             </div>
             <div class="column is-12">
-                <label class="label" style="color:white">>Teste de Prático</label>
+                <label class="label" style="color:grey">Teste de Prático</label>
             </div>
 
         </div>
 
         <div class="column is-9 conteudo">
             <div class="container">
-                <div class="field column is-6" style="margin-left: 30%;">
+                <div class="field column is-6" style="margin-left: 20%;">
+
+                    <img src="../../images/Background.png" height="800" width="100%" alt="background">
 
                     <div class="control column is-12">
                         <label class="label">Nome Completo</label>
@@ -69,7 +71,8 @@
                 <div class="field column is-4" style="margin-left: 70%;">
                     <div class="columns">
                         <div class="column is-offset-4 is-8">
-                            <router-link to="/formulario" class="button is-success is-fullwidth is-large"> Próximo
+                            <router-link to="/formulario" class="button is-success is-fullwidth is-large"
+                                @click="onClickCadastrar()"> Próximo
                                 passo
                             </router-link>
                         </div>
@@ -114,23 +117,23 @@ nav {
 }
 </style>
 <script lang="ts">
-import {CandidatoModel} from '@/model/candidato.model'
-import {CandidatoClient} from '@/client/candidato.client'
+import { CandidatoModel } from '@/model/candidato.model'
+import { CandidatoClient } from '@/client/candidato.client'
 import { NotificacaoModel } from '@/model/notificacao.model'
 import { Vue } from 'vue-class-component'
 
 
-export default class MenuView extends Vue { 
+export default class MenuView extends Vue {
 
-    public candidato: CandidatoModel = new CandidatoModel(); 
+    public candidato: CandidatoModel = new CandidatoModel();
     public candidatoClient: CandidatoClient = new CandidatoClient();
-    public notification : NotificacaoModel = new NotificacaoModel()
+    public notification: NotificacaoModel = new NotificacaoModel()
 
 
     public onClickCadastrar(): void {
-            
-            this.candidatoClient.cadastrar(this.candidato)
-                .then(
+
+        this.candidatoClient.cadastrar(this.candidato)
+            .then(
                 success => {
                     this.notification = this.notification.new(true, 'notification is-success', 'Especialidade Cadastrada com sucesso!!!')
                     this.onClickLimpar()
@@ -138,14 +141,14 @@ export default class MenuView extends Vue {
                     this.notification = this.notification.new(true, 'notification is-danger', 'Error: ' + error)
                     this.onClickLimpar()
                 })
-        }
+    }
 
-        public onClickFecharNotificacao(): void {
-            this.notification = new NotificacaoModel()
-        }
-        private onClickLimpar(): void {
-            this.candidato = new CandidatoModel()
-        }
+    public onClickFecharNotificacao(): void {
+        this.notification = new NotificacaoModel()
+    }
+    private onClickLimpar(): void {
+        this.candidato = new CandidatoModel()
+    }
 }
 
 </script>

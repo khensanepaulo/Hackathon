@@ -2,7 +2,7 @@ import { TestePersonalidade } from "@/model/teste-personalidade.model";
 import axios, { AxiosInstance } from "axios"
 
 
-export class ProdutoClient {
+export class TestePersonalidadeClient {
 
 
     private axiosClient: AxiosInstance;
@@ -14,9 +14,9 @@ export class ProdutoClient {
         });
     }
 
-    public async cadastrar(token: string, testePersonalidade: TestePersonalidade): Promise<TestePersonalidade> {
+    public async cadastrar(testePersonalidade: TestePersonalidade): Promise<TestePersonalidade> {
         try {
-            return (await this.axiosClient.post(`/cadastrar?token=${token}`, testePersonalidade)).data
+            return (await this.axiosClient.post(`/cadastrar`, testePersonalidade)).data
         } catch (error: any) {
             return Promise.reject(error.response)
         }
