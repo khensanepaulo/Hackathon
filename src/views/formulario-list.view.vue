@@ -20,11 +20,11 @@
                 <div class="field column is-6">
 
 
-                    <div class="control field column is-7" v-for="item in testeList">
+                    <div class="control field column is-7" v-for="item in testeList" :key="item.id">
                         <label style=" font-weight:bolder;"> Marque o que mais o identifica</label>
-                        <label class="radio column is-12" v-for="pergunta in " style="margin-left: 8px">
+                        <label class="radio column is-12" style="margin-left: 8px">
                             <input type="radio" name="foobar">
-                            {{item}}
+                            {{item.termo}}
                         </label>
                     </div>
 
