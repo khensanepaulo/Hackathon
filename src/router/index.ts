@@ -2,25 +2,20 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'menu',
-    component: () => import(/* webpackChunkName: "menu" */ '../views/menu.view.vue')
+    path: '/candidato',
+    name: 'candidato',
+    component: () => import(/* webpackChunkName: "menu" */ '../views/formulario.view.vue')
   },
   {
-    path: '/login',
-    name: 'login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/login.view.vue')
+    path: '/formulario',
+    name: 'formulario',
+    component: () => import(/* webpackChunkName: "formulario" */ '../views/formulario-list.view.vue')
   },
   {
-    path: '/proximos-passos',
-    name: 'proximos-passos',
-    component: () => import(/* webpackChunkName: "passo" */ '../views/passo.view.vue')
+    path: '/teste',
+    name: 'teste',
+    component: () => import(/* webpackChunkName: "teste" */ '../views/testePratico.view.vue')
   },
-  {
-    path: '/produtos-listar',
-    name: 'produtos-listar',
-    component: () => import(/* webpackChunkName: "produtos-listar" */ '../views/produto-list.view.vue')
-  }
 ]
 
 const router = createRouter({
