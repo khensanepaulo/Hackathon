@@ -71,9 +71,10 @@ export default class PassoView extends Vue {
         this.listarTeste()
     }
     private listarTeste(): void {
-        this.testePersonalidadeClient.listar()
+        this.testePersonalidadeClient.listar(this.pageRequest)
             .then(
                 success => {
+                    this.pageResponse = success
                     this.testeList = this.pageResponse.content
                 },
                 error => console.log(error)

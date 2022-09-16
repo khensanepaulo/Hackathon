@@ -1,4 +1,6 @@
 import { TestePersonalidade } from "@/model/teste-personalidade.model";
+import { PageRequest } from '@/model/page/page-request'
+import { PageResponse } from '@/model/page/page-response'
 import axios, { AxiosInstance } from "axios"
 
 
@@ -22,9 +24,20 @@ export class TestePersonalidadeClient {
         }
     }
 
-    public async listar(): Promise<TestePersonalidade[]> {
+    public async listar(pageRequest: PageRequest): Promise<PageResponse<TestePersonalidade>> {
         try {
-            return (await this.axiosClient.get('/disc')).data
+            let requestPath = ''
+
+            requestPath += `?page=${pageRequest.currentPage}`
+            requestPath += `&size=${pageRequest.pageSize}`
+            requestPath += `&sort=${pageRequest.sortField === undefined
+                ? '' : pageRequest.sortField},${pageRequest.direction}`
+            return (await this.axiosClient.get<PageResponse<TestePersonalidade>>(requestPath,
+                {
+                    params: { filtros: pageRequest.filter }
+                }
+            )).data
+
         } catch (error: any) {
             return Promise.reject(error.response)
         }
